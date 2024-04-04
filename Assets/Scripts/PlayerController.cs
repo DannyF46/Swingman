@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
         if (!GameLogic.Paused)
         {
             CharPos = playerRB.position;
-
+            /*
             if (Grapple.isGrappling)
             {
                 Vector2 PointinWorld = Grapple.CurrentBody.transform.TransformPoint(Grapple.CurrentPoint); //current grapple point, in world coords
@@ -186,7 +186,7 @@ public class PlayerController : MonoBehaviour
                     Vert *= -1; //makes it so down button contracts rope when player is above grapple point
                 }
             }
-
+                */
             //FloorCheck = Physics2D.Raycast(CharPos, Vector2.down, 3f, groundLayer);
             FloorCheck = Physics2D.OverlapBox(CharPos + 2.5f * Vector2.down, new(1.5f, 0.1f), 0, groundLayer);
 
