@@ -14,6 +14,7 @@ public class GrappleHook : MonoBehaviour
     private DistanceJoint2D Grapple;
     private LineRenderer lr;
     private GameLogic GameLogic;
+    [SerializeField] private AudioSource audioSource;
 
     public float Range = 12f; //grapple range
     public int Shots = 2; //max number of shots
@@ -60,6 +61,7 @@ public class GrappleHook : MonoBehaviour
         lr = transform.Find("Grapple").GetComponent<LineRenderer>();
         Grapple.enabled = false;
         GameLogic = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameLogic>();
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -153,6 +155,8 @@ public class GrappleHook : MonoBehaviour
 
                 if (Grapplehit.collider != null)
                 {
+
+                    audioSource.Play();
                     GrappleBodies.Add(0, Grapplehit.rigidbody);
                     GrapplePoints.Add(0, GrappleBodies[0].transform.InverseTransformPoint(Grapplehit.point));
                     WrapAngleLookup.Add(0, 0);
@@ -224,6 +228,7 @@ public class GrappleHook : MonoBehaviour
             }
             if (!LClickHold)
             {
+                audioSource.Stop();
                 lr.positionCount = 0;
 
                 GrappleBodies.Clear();
