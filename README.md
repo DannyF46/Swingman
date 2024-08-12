@@ -1,5 +1,5 @@
 # Swingman (working title)
-See [itch.io](https://zony66.itch.io/swingman) for an executable version of the game.
+See [itch.io](https://dannyf46.itch.io/swingman) for an executable version of the game.
 
 A little prototype for a game about using a grapple hook, sometimes for platforming and sometimes for solving physics-related puzzles!
 
